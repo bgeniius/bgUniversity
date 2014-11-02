@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Bgeniius University</h1>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Welcome to Bgeniius University</h2>
+        <p>
+            <a href="http://bgeniius.com/" target="_blank">Bgeniius</a> University is a sample application derived from the <a href="http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8" target="_blank">Contoso University example</a> from Mircrosoft.
+        </p>
+        <p>
+            <b>Using</b>
+            <ul>
+                <li>Entity Framework 6</li>
+                <li>ASP.NET MVC 5</li>
+                <li>Kendo UI</li>
+                <li>jQuery Validation</li>
+                <li>jQuery Validation Unobstrusive</li>
+                <li><a href="http://bgeniius.com/2014/10/kendo-ui-with-jquery-validation/" target="_blank">Kendo UI with JQuery Validation</a></li>
+            </ul>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>How to?</h2>
+        <p>
+            To view and use the changes on this example go to the Student menu on top and make some simple CRUD operations.
+        </p>
+        <p>
+             The field "Birth Country" was added and it is using Kendo UI to display a remote ComboBox.
+        </p> 
+        <p><a class="btn btn-default" href="@Url.Action("Create", "Student")">Create a Student &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Fork it</h2>
+        <p>Get the full example on GitHub.</p>
+        <p><a class="btn btn-default" target="_blank" href="https://github.com/bgeniius/bgUniversity">Fork &raquo;</a></p>
+    </div>
+</div>

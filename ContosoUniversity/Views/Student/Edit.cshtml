@@ -1,0 +1,92 @@
+﻿@model BgeniiusUniversity.Models.Student
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Student</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstMidName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstMidName)
+                @Html.ValidationMessageFor(model => model.FirstMidName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EnrollmentDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EnrollmentDate)
+                @Html.ValidationMessageFor(model => model.EnrollmentDate)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.BirthCountry, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.BirthCountry, new { @class = "kendo-force-validation" })
+                @Html.ValidationMessageFor(model => model.BirthCountry)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script type="text/javascript">
+    /*Kendo DatePicker init*/
+    $("#EnrollmentDate").kendoDatePicker();
+    /* Kendo ComboBox init*/
+    $("#BirthCountry").kendoComboBox({
+        placeholder: "Select the country",
+        dataTextField: "country.country_name",
+        dataValueField: "country.country_name",
+        filter: "contains",
+        autoBind: true,
+        minLength: 3,
+        dataSource: {
+            type: "jsonp",
+            schema: {
+                data: function (response) {
+                    return response.countries;
+                }
+            },
+            transport: {
+                read: {
+                    url: "http://vocab.nic.in/rest.php/country/json",
+                }
+            }
+        }
+    });
+</script>
