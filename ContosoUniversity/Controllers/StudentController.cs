@@ -84,6 +84,12 @@ namespace BgeniiusUniversity.Controllers
             return View();
         }
 
+        // GET: /Student/Create
+        public ActionResult CreateWithError()
+        {
+            return View();
+        }
+
         // POST: /Student/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.

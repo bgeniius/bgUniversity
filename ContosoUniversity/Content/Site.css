@@ -25,8 +25,12 @@ textarea {
     display: none;
 }
 
-input.input-validation-error {
-    border: 1px solid #b94a48;
+.input-validation-error, .kendo-validation-error {
+    border: 1px solid #b94a48 !important;
+}
+
+.kendo-validation-error input {
+     border: 0 none !important;
 }
 
 input[type="checkbox"].input-validation-error {
